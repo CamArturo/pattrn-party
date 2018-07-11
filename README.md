@@ -1,2 +1,2 @@
 # pattrn-party
-# html5boilerplate
+# pattrn-party
