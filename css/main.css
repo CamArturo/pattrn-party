@@ -1,4 +1,9 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+*, *:before, *:after {
+  box-sizing: inherit; }
+
 html {
+  box-sizing: border-box;
   color: #222;
   font-size: 1em;
   line-height: 1.4;
@@ -40,26 +45,54 @@ fieldset {
 textarea {
   resize: vertical; }
 
-header {
+body > header {
   background-color: #2f2235;
   height: 100px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #fff; }
-  header h1 {
+  body > header h1 {
     margin: 0;
     padding-left: 100px; }
-    header h1 span {
+    body > header h1 span {
       color: #34d1d1; }
-  header h2 {
+  body > header h2 {
     padding-right: 100px; }
 
 .main-container {
   padding: 100px; }
 
 .accordion-tabs {
-  border-bottom: 1px solid #ccc;
   text-align: left; }
+  .accordion-tabs .accordion {
+    border: 1px solid #222;
+    padding: 0;
+    margin-top: 50px;
+    position: relative; }
+    .accordion-tabs .accordion section {
+      display: none;
+      padding: 15px;
+      position: absolute;
+      top: 42px;
+      left: 0;
+      border-bottom: 1px solid #ccc; }
+    .accordion-tabs .accordion li {
+      list-style: none;
+      display: inline;
+      width: calc(25% - 4px); }
+      .accordion-tabs .accordion li a {
+        padding: 10px 20px;
+        text-decoration: none;
+        background-color: #2f2235;
+        color: #fff;
+        display: inline-block;
+        width: calc(25% - 4px); }
+      .accordion-tabs .accordion li a.active {
+        background-color: #fff;
+        color: #3f3244; }
+      .accordion-tabs .accordion li a:hover {
+        background-color: #fff;
+        color: #3f3244; }
 
 /*# sourceMappingURL=main.css.map */

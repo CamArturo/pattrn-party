@@ -2,7 +2,13 @@ $purple: #2f2235;
 $party: #34d1d1;
 $font: 'Roboto', sans-serif;
 
+/* apply a natural box layout model to all elements, but allowing components to change */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 html {
+  box-sizing: border-box;
   color: #222;
   font-size: 1em;
   line-height: 1.4;
@@ -52,7 +58,7 @@ textarea {
   resize: vertical;
 }
 
-header {
+body > header {
   background-color: $purple;
   height: 100px;
   display: flex;
@@ -76,9 +82,43 @@ header {
 }
 
 .accordion-tabs {
-  border-bottom: 1px solid #ccc;
   text-align: left;
   h2 {
 
+  }
+  .accordion {
+    border: 1px solid #222;
+    padding: 0;
+    margin-top: 50px;
+    position: relative;
+    section {
+      display: none;
+      padding: 15px;
+      position: absolute;
+      top: 42px;
+      left: 0;
+      border-bottom: 1px solid #ccc;
+    }
+    li {
+      list-style: none;
+      display: inline;
+      width: calc(25% - 4px);
+      a {
+        padding: 10px 20px;
+        text-decoration: none;
+        background-color: $purple;
+        color: #fff;
+        display: inline-block;
+        width: calc(25% - 4px);
+      }
+      a.active {
+        background-color: #fff;
+        color: #3f3244;
+      }
+      a:hover {
+        background-color: #fff;
+        color: #3f3244;
+      }
+    }
   }
 }
