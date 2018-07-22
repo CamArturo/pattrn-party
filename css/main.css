@@ -2,6 +2,11 @@
 *, *:before, *:after {
   box-sizing: inherit; }
 
+.group:after {
+  content: "";
+  display: table;
+  clear: both; }
+
 html {
   box-sizing: border-box;
   color: #222;
@@ -46,7 +51,7 @@ textarea {
   resize: vertical; }
 
 body > header {
-  background-color: #2f2235;
+  background-color: #3f3244;
   height: 100px;
   display: flex;
   align-items: center;
@@ -54,45 +59,100 @@ body > header {
   color: #fff; }
   body > header h1 {
     margin: 0;
-    padding-left: 100px; }
+    padding-left: 100px;
+    font-weight: 300; }
     body > header h1 span {
       color: #34d1d1; }
+  body > header hr {
+    display: none; }
   body > header h2 {
-    padding-right: 100px; }
+    padding-right: 100px;
+    font-weight: 300; }
+
+.btn {
+  background-color: #f2f2f2;
+  color: #fff;
+  padding: 10px;
+  width: 200px; }
 
 .main-container {
   padding: 100px; }
+  .main-container .btn-container {
+    text-align: center; }
 
 .accordion-tabs {
-  text-align: left; }
-  .accordion-tabs .accordion {
-    border: 1px solid #222;
+  min-height: 400px; }
+  .accordion-tabs .accordion-container {
     padding: 0;
-    margin-top: 50px;
+    margin: 50px 0 0 0;
     position: relative; }
-    .accordion-tabs .accordion section {
+    .accordion-tabs .accordion-container .accordion {
       display: none;
       padding: 15px;
       position: absolute;
       top: 42px;
       left: 0;
-      border-bottom: 1px solid #ccc; }
-    .accordion-tabs .accordion li {
+      border-right: 1px solid #222;
+      border-left: 1px solid #222;
+      border-bottom: 1px solid #222; }
+    .accordion-tabs .accordion-container li {
       list-style: none;
-      display: inline;
-      width: calc(25% - 4px); }
-      .accordion-tabs .accordion li a {
+      /* display: inline; */
+      width: 25%;
+      float: left;
+      border-top: 1px solid #222;
+      border-right: 1px solid #222;
+      border-left: 1px solid #222; }
+      .accordion-tabs .accordion-container li a {
         padding: 10px 20px;
         text-decoration: none;
-        background-color: #2f2235;
-        color: #fff;
         display: inline-block;
-        width: calc(25% - 4px); }
-      .accordion-tabs .accordion li a.active {
+        width: 100%;
+        color: #fff;
+        background-color: color(purple, medium); }
+      .accordion-tabs .accordion-container li a.active {
         background-color: #fff;
         color: #3f3244; }
-      .accordion-tabs .accordion li a:hover {
+      .accordion-tabs .accordion-container li a:hover {
         background-color: #fff;
         color: #3f3244; }
+      .accordion-tabs .accordion-container li .img-placeholder {
+        background-color: #ccc;
+        width: 30%;
+        height: 100%; }
+      .accordion-tabs .accordion-container li .accordion-content {
+        width: 70%;
+        height: 100%; }
+
+/* Large Devices, Wide Screens */
+/* Medium Devices, Desktops */
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  body > header h1 {
+    text-align: left;
+    padding: 0 0 0 1rem; }
+  body > header h2 {
+    padding: 0 1rem 0 0; } }
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  body > header {
+    background-color: #2f2235;
+    height: auto;
+    display: block;
+    justify-content: center;
+    color: #fff; }
+    body > header h1 {
+      text-align: center;
+      padding: 1rem 0 1rem 0; }
+    body > header hr {
+      display: block;
+      width: 40%;
+      margin: 0 auto 0; }
+    body > header h2 {
+      text-align: center;
+      padding: .5rem 0 1rem 0;
+      margin: 0;
+      font-size: 1rem; } }
+/* Custom, iPhone Retina */
 
 /*# sourceMappingURL=main.css.map */

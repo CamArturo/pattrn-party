@@ -26,3 +26,9 @@ $(function () {
     // }
   });
 });
+
+// $(window).on("resize", (function () {
+//   if (Modernizr.mq("(max-width: 480px)")) {
+//     $( "<hr>" ).appendTo( "body > header > h1" );
+//   }
+// }));
