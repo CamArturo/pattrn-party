@@ -27,8 +27,13 @@ $(function () {
   });
 });
 
-// $(window).on("resize", (function () {
-//   if (Modernizr.mq("(max-width: 480px)")) {
-//     $( "<hr>" ).appendTo( "body > header > h1" );
-//   }
-// }));
+$(function () {
+  $(".header-bar-container").addClass("js");
+
+  $(".mobile-nav").on("click", (e) => {
+    e.preventDefault();
+    $(".menu-link").toggleClass("active");
+    $("#menu").toggleClass("active");
+  });
+
+});
