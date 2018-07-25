@@ -25,20 +25,7 @@ html {
   line-height: 1.4;
   font-family: 'Roboto', sans-serif;
   margin: 0;
-}
-
-body {
   background-color: #fff;
-}
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
 }
 
 hr {
@@ -50,25 +37,6 @@ hr {
   padding: 0;
 }
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle;
-}
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-textarea {
-  resize: vertical;
-}
-
 body > header {
   background-color: $purple-light;
   height: 100px;
@@ -78,7 +46,7 @@ body > header {
   color: #fff;
   h1 {
     margin: 0;
-    padding-left: 100px;
+    padding-left: calc(100px + 1rem);
     font-weight: 300;
     span {
       color: $blue-light;
@@ -88,7 +56,7 @@ body > header {
     display: none;
   }
   h2 {
-    padding-right: 100px;
+    padding-right: calc(100px + 1rem);
     font-weight: 300;
   }
 }
@@ -103,6 +71,7 @@ body > header {
 .main-container {
   padding: 100px;
   width: calc(100% - 2rem);
+  margin: 0 auto;
   .btn-container {
     text-align: center;
     margin: 50px 0 0 0;
@@ -110,11 +79,6 @@ body > header {
 }
 
 .accordion-tabs {
-  //text-align: left;
-  min-height: 400px;
-  h2 {
-
-  }
   .accordion-container {
     padding: 0;
     margin: 50px 0 0 0;
@@ -129,12 +93,12 @@ body > header {
       border-left: 1px solid #222;
       border-bottom: 1px solid #222;
     }
+    .accordion.is-open {
+      display: flex !important;
+      flex-direction: row;
+    }
     li {
-      //list-style: none;
-      //display: inline;
-      //width: calc(25% - 4px);
       list-style: none;
-      /* display: inline; */
       width: 25%;
       float: left;
       border-top: 1px solid #222;
@@ -144,7 +108,6 @@ body > header {
         padding: 10px 20px;
         text-decoration: none;
         display: inline-block;
-        //width: calc(25% - 4px);
         width: 100%;
         color: #fff;
         background-color: $purple-medium;
@@ -158,13 +121,46 @@ body > header {
         color: #3f3244;
       }
       .img-placeholder {
-        background-color: #ccc;
+        background-color: $grey-base;
         width: 30%;
-        height: 100%;
       }
       .accordion-content {
-        width: 70%;
+        width: calc(70% - 1rem);
         height: 100%;
+        margin: 0 0 0 1rem;
+        float: right;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .main-container > .btn-container .btn {
+    margin-top: 1rem;
+  }
+  .accordion-tabs {
+    .accordion-container {
+      .accordion.is-open {
+        flex-direction: column;
+      }
+      li {
+        width: 100%;
+        .img-placeholder,
+        .accordion-content {
+          width: 100%;
+        }
+        .img-placeholder {
+          height: 200px;
+        }
+        .accordion-content {
+          margin: 0;
+        }
+      }
+      .accordion {
+        top: 0;
+        border: 0;
+        border-bottom: 1px solid #222;
+        position: relative;
       }
     }
   }
@@ -174,9 +170,7 @@ body > header {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: calc(33.33% - 1rem) calc(33.33% - 1rem) 33.33%;
-  .row {
-    //display: flex;
-  }
+  margin: 50px 0 0 0;
   .card.card-2x {
     grid-column-end: span 2;
   }
@@ -225,7 +219,7 @@ body > header {
   .js .menu {
     overflow: hidden;
     max-height: 0;
-    background: $grey-light;
+    background: #e6e6e6;
   }
   .menu.active,
   .js .menu > ul ul.active {
@@ -245,7 +239,7 @@ body > header {
   .circle {
     width: 40px;
     height: 40px;
-    background: grey;
+    background: $grey-base;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 50px;
@@ -264,7 +258,7 @@ body > header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: $grey-medium;
+      background-color: $grey-light;
       ul {
         margin: 5px 0;
         display: flex;
@@ -274,7 +268,6 @@ body > header {
           display: inline-block;
           position: relative;
           a {
-            color: #fff;
             margin-left: 1.5rem;
           }
         }
@@ -295,7 +288,7 @@ body > header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: $grey-medium;
+      background-color: $grey-light;
       padding: 0 10px
     }
     #menu {
@@ -311,7 +304,7 @@ body > header {
       }
     }
     a.menu-link {
-      color: $grey-base;
+      color: $grey-medium;
       text-decoration: none;
       float: right;
     }
