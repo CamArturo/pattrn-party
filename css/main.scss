@@ -1,21 +1,9 @@
-$palettes: (
-        grey: (
-                base: #f2f2f2,
-                light: #d1d2d3,
-                medium: #666665
-        ),
-        purple: (
-                light: #3f3244,
-                medium: #2f2235
-        ),
-        blue: (
-                light: #34d1d1
-        )
-);
-
-@function palette($palette, $tone: 'base') {
-  @return map-get(map-get($palettes, $palette), $tone);
-}
+$grey-base: #f2f2f2;
+$grey-light: #d1d2d3;
+$grey-medium: #666665;
+$purple-light: #3f3244;
+$purple-medium: #2f2235;
+$blue-light: #34d1d1;
 
 $font: 'Open Sabs', sans-serif;
 
@@ -82,7 +70,7 @@ textarea {
 }
 
 body > header {
-  background-color: palette(purple, light);
+  background-color: $purple-light;
   height: 100px;
   display: flex;
   align-items: center;
@@ -93,7 +81,7 @@ body > header {
     padding-left: 100px;
     font-weight: 300;
     span {
-      color: palette(blue, light);
+      color: $blue-light;
     }
   }
   hr {
@@ -106,7 +94,7 @@ body > header {
 }
 
 .btn {
-  background-color: palette(purple, medium);
+  background-color: $purple-medium;
   color: #fff;
   padding: 10px;
   width: 200px;
@@ -114,8 +102,10 @@ body > header {
 
 .main-container {
   padding: 100px;
+  width: calc(100% - 2rem);
   .btn-container {
     text-align: center;
+    margin: 50px 0 0 0;
   }
 }
 
@@ -157,7 +147,7 @@ body > header {
         //width: calc(25% - 4px);
         width: 100%;
         color: #fff;
-        background-color: color(purple, medium);
+        background-color: $purple-medium;
       }
       a.active {
         background-color: #fff;
@@ -176,6 +166,42 @@ body > header {
         width: 70%;
         height: 100%;
       }
+    }
+  }
+}
+
+.flexible-cards-container {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: calc(33.33% - 1rem) calc(33.33% - 1rem) 33.33%;
+  .row {
+    //display: flex;
+  }
+  .card.card-2x {
+    grid-column-end: span 2;
+  }
+  .card {
+    border: 1px solid $grey-light;
+    header {
+      margin: 0;
+      padding: 1rem 0 1rem 10px;
+      background-color: #fff;
+      p {
+        margin: 0;
+      }
+    }
+    .card-body {
+      height: 240px;
+      background-color: $grey-base;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .flexible-cards-container {
+    .card,
+    .card.card-2x {
+      grid-column-end: span 3;
     }
   }
 }
@@ -199,14 +225,14 @@ body > header {
   .js .menu {
     overflow: hidden;
     max-height: 0;
-    background: palette(grey, light)
+    background: $grey-light;
   }
   .menu.active,
   .js .menu > ul ul.active {
     max-height: 200px;
   }
   .menu li a {
-    color: palette(grey, medium);
+    color: $grey-medium;
     display: block;
     padding: 5px;
     position: relative;
@@ -238,7 +264,7 @@ body > header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: palette(grey, medium);
+      background-color: $grey-medium;
       ul {
         margin: 5px 0;
         display: flex;
@@ -269,7 +295,7 @@ body > header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: palette(grey, medium);
+      background-color: $grey-medium;
       padding: 0 10px
     }
     #menu {
@@ -285,7 +311,7 @@ body > header {
       }
     }
     a.menu-link {
-      color: palette(grey, base);
+      color: $grey-base;
       text-decoration: none;
       float: right;
     }
@@ -307,7 +333,8 @@ body > header {
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
   .main-container {
-    padding: 1rem;
+    padding: 0 1rem;
+    margin: 0 auto;
   }
   body > header {
     h1 {
@@ -323,7 +350,7 @@ body > header {
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
   body > header {
-    background-color: palette(purple, medium);
+    background-color: $purple-medium;
     height: auto;
     display: block;
     justify-content: center;
