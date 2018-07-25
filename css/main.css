@@ -13,18 +13,8 @@ html {
   font-size: 1em;
   line-height: 1.4;
   font-family: 'Roboto', sans-serif;
-  margin: 0; }
-
-body {
+  margin: 0;
   background-color: #fff; }
-
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none; }
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none; }
 
 hr {
   display: block;
@@ -33,22 +23,6 @@ hr {
   border-top: 1px solid #ccc;
   margin: 1em 0;
   padding: 0; }
-
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
-  vertical-align: middle; }
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0; }
-
-textarea {
-  resize: vertical; }
 
 body > header {
   background-color: #3f3244;
@@ -59,14 +33,14 @@ body > header {
   color: #fff; }
   body > header h1 {
     margin: 0;
-    padding-left: 100px;
+    padding-left: calc(100px + 1rem);
     font-weight: 300; }
     body > header h1 span {
       color: #34d1d1; }
   body > header hr {
     display: none; }
   body > header h2 {
-    padding-right: 100px;
+    padding-right: calc(100px + 1rem);
     font-weight: 300; }
 
 .btn {
@@ -77,59 +51,82 @@ body > header {
 
 .main-container {
   padding: 100px;
-  width: calc(100% - 2rem); }
+  width: calc(100% - 2rem);
+  margin: 0 auto; }
   .main-container .btn-container {
     text-align: center;
     margin: 50px 0 0 0; }
 
-.accordion-tabs {
-  min-height: 400px; }
-  .accordion-tabs .accordion-container {
-    padding: 0;
-    margin: 50px 0 0 0;
-    position: relative; }
-    .accordion-tabs .accordion-container .accordion {
-      display: none;
-      padding: 15px;
-      position: absolute;
-      top: 42px;
-      left: 0;
-      border-right: 1px solid #222;
-      border-left: 1px solid #222;
-      border-bottom: 1px solid #222; }
-    .accordion-tabs .accordion-container li {
-      list-style: none;
-      /* display: inline; */
-      width: 25%;
-      float: left;
-      border-top: 1px solid #222;
-      border-right: 1px solid #222;
-      border-left: 1px solid #222; }
-      .accordion-tabs .accordion-container li a {
-        padding: 10px 20px;
-        text-decoration: none;
-        display: inline-block;
-        width: 100%;
-        color: #fff;
-        background-color: #2f2235; }
-      .accordion-tabs .accordion-container li a.active {
-        background-color: #fff;
-        color: #3f3244; }
-      .accordion-tabs .accordion-container li a:hover {
-        background-color: #fff;
-        color: #3f3244; }
-      .accordion-tabs .accordion-container li .img-placeholder {
-        background-color: #ccc;
-        width: 30%;
-        height: 100%; }
-      .accordion-tabs .accordion-container li .accordion-content {
-        width: 70%;
-        height: 100%; }
+.accordion-tabs .accordion-container {
+  padding: 0;
+  margin: 50px 0 0 0;
+  position: relative; }
+  .accordion-tabs .accordion-container .accordion {
+    display: none;
+    padding: 15px;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    border-right: 1px solid #222;
+    border-left: 1px solid #222;
+    border-bottom: 1px solid #222; }
+  .accordion-tabs .accordion-container .accordion.is-open {
+    display: flex !important;
+    flex-direction: row; }
+  .accordion-tabs .accordion-container li {
+    list-style: none;
+    width: 25%;
+    float: left;
+    border-top: 1px solid #222;
+    border-right: 1px solid #222;
+    border-left: 1px solid #222; }
+    .accordion-tabs .accordion-container li a {
+      padding: 10px 20px;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      color: #fff;
+      background-color: #2f2235; }
+    .accordion-tabs .accordion-container li a.active {
+      background-color: #fff;
+      color: #3f3244; }
+    .accordion-tabs .accordion-container li a:hover {
+      background-color: #fff;
+      color: #3f3244; }
+    .accordion-tabs .accordion-container li .img-placeholder {
+      background-color: #f2f2f2;
+      width: 30%; }
+    .accordion-tabs .accordion-container li .accordion-content {
+      width: calc(70% - 1rem);
+      height: 100%;
+      margin: 0 0 0 1rem;
+      float: right; }
 
+@media only screen and (max-width: 768px) {
+  .main-container > .btn-container .btn {
+    margin-top: 1rem; }
+
+  .accordion-tabs .accordion-container .accordion.is-open {
+    flex-direction: column; }
+  .accordion-tabs .accordion-container li {
+    width: 100%; }
+    .accordion-tabs .accordion-container li .img-placeholder,
+    .accordion-tabs .accordion-container li .accordion-content {
+      width: 100%; }
+    .accordion-tabs .accordion-container li .img-placeholder {
+      height: 200px; }
+    .accordion-tabs .accordion-container li .accordion-content {
+      margin: 0; }
+  .accordion-tabs .accordion-container .accordion {
+    top: 0;
+    border: 0;
+    border-bottom: 1px solid #222;
+    position: relative; } }
 .flexible-cards-container {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: calc(33.33% - 1rem) calc(33.33% - 1rem) 33.33%; }
+  grid-template-columns: calc(33.33% - 1rem) calc(33.33% - 1rem) 33.33%;
+  margin: 50px 0 0 0; }
   .flexible-cards-container .card.card-2x {
     grid-column-end: span 2; }
   .flexible-cards-container .card {
@@ -162,7 +159,7 @@ body > header {
 .header-bar .js .menu {
   overflow: hidden;
   max-height: 0;
-  background: #d1d2d3; }
+  background: #e6e6e6; }
 .header-bar .menu.active,
 .header-bar .js .menu > ul ul.active {
   max-height: 200px; }
@@ -178,7 +175,7 @@ body > header {
 .header-bar .circle {
   width: 40px;
   height: 40px;
-  background: grey;
+  background: #f2f2f2;
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px; }
@@ -193,7 +190,7 @@ body > header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #666665; }
+    background-color: #d1d2d3; }
     .header-bar #menu ul {
       margin: 5px 0;
       display: flex;
@@ -203,7 +200,6 @@ body > header {
         display: inline-block;
         position: relative; }
         .header-bar #menu ul li a {
-          color: #fff;
           margin-left: 1.5rem; }
     .header-bar #menu #search {
       display: inline-block;
@@ -216,7 +212,7 @@ body > header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #666665;
+    background-color: #d1d2d3;
     padding: 0 10px; }
   .header-bar #menu ul li {
     list-style-type: none; }
@@ -226,7 +222,7 @@ body > header {
   .header-bar #menu #search {
     margin: 0 0 1rem 40px; }
   .header-bar a.menu-link {
-    color: #f2f2f2;
+    color: #666665;
     text-decoration: none;
     float: right; } }
 
